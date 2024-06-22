@@ -3,7 +3,7 @@
 from typing import Tuple
 
 
-def index_range(page: int, page_size: int)-> Tuple[int, int]:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """teh function that calculate the range of indexes
 
     Args:
@@ -11,7 +11,8 @@ def index_range(page: int, page_size: int)-> Tuple[int, int]:
         page_size (int): the size of the page
 
     Returns:
-        Tuple[int, int]: a tuple of size two containing a start index and an end index
-          corresponding to the range of indexes 
+        Tuple[int, int]: a tuple of size
+        two containing a start index and an end index
+        corresponding to the range of indexes
     """
     return ((page - 1) * page_size, page_size * page)
