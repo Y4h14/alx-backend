@@ -51,7 +51,9 @@ class Server:
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
-        start_index, end_index = index_range(page, page_size)
+        pages_got: Tuple[int, int] = index_range(page, page_size)
+        start_index: int = pages_got[0]
+        end_index: int = pages_got[1]
         self.dataset()
         if self.__dataset:
             return self.__dataset[start_index: end_index]
@@ -76,9 +78,9 @@ class Server:
         # prev_page = page - 1 or None
         # total_pages = len(self.__dataset)/page_size
         self.dataset()
-        total_pages = round(len(self.__dataset)/page_size)
-        next_page = page + 1 if page < total_pages else None
-        prev_page = page - 1 if page > 1 else None
+        total_pages: int = round(len(self.__dataset)/page_size)
+        next_page: int = page + 1 if page < total_pages else None
+        prev_page: int = page - 1 if page > 1 else None
         return {
             'page_size': page_size,
             'page': page,
