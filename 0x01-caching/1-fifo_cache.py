@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """deifne a FIFOCLASS basecaching"""
-from base_caching import BaseCaching
+BaseCaching = __import__("base_caching").BaseCaching
+
 
 class FIFOCache(BaseCaching):
     """class for fifo cacing"""
@@ -20,7 +21,7 @@ class FIFOCache(BaseCaching):
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             first_in = next(iter(self.cache_data))
             self.cache_data.pop(first_in)
-            print(f"DISCARD:{first_in}")
+            print(f"DISCARD: {first_in}")
 
     def get(self, key):
         """
