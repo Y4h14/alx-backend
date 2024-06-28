@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """define a least receantly used cache class"""
-from BaseCaching import BaseCaching
+BaseCaching = __import__("base_caching").BaseCaching
 from collections import OrderedDict
 
 

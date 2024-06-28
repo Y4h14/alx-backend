@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """define a LIFO caching class"""
-from BaseCaching import BaseCaching
+BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LIFOCache(BaseCaching):

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """define a  mru cache class"""
-from base_caching import BaseCaching
+BaseCaching = __import__("base_caching").BaseCaching
 from collections import OrderedDict
 
 
