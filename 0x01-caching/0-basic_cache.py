@@ -8,20 +8,10 @@ class BasicCache(BaseCaching):
     defines a basic class for a basic cache
     """
     def put(self, key, item):
-        """_summary_
-
-        Args:
-            key (str): cache item key
-            item (Any): item stored in cache
-        """
-        if key is None or item is None:
-            return
-        self.cache_data[key] = item
+        """ puts item in cache"""
+        if key and item:
+            self.cache_data[key] = item
 
     def get(self, key):
-        """
-
-        Args:
-            key (str): the cache item key
-        """
+        """ gets item from cache """
         return self.cache_data.get(key, None)
