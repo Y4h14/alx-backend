@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """define a  mru cache class"""
-BaseCaching = __import__("base_caching").BaseCaching
 from collections import OrderedDict
+BaseCaching = __import__("base_caching").BaseCaching
 
 
 class MRUCache(BaseCaching):
@@ -21,7 +21,7 @@ class MRUCache(BaseCaching):
         if key is None or item is None:
             return
         if key not in self.cache_data:
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 mru, _ = self.cache_data.popitem(False)
                 print(f"DISCARD: {mru}")
             self.cache_data[key] = item
@@ -35,6 +35,6 @@ class MRUCache(BaseCaching):
             key (_type_): _description_
         """
         if key in self.cache_data:
-            self.cache_data.remove(key)
-            self.cache_data.append(key)
+            value = self.cache_data.pop(key)
+            self.cache_data[key] = value
         return self.cache_data.get(key, None)
