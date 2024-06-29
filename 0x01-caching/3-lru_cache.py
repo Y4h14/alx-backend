@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """define a least receantly used cache class"""
-BaseCaching = __import__("base_caching").BaseCaching
 from collections import OrderedDict
+BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LRUCache(BaseCaching):
@@ -21,7 +21,7 @@ class LRUCache(BaseCaching):
         if key is None or item is None:
             return
         if key not in self.cache_data:
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 lru, _ = self.cache_data.popitem(True)
                 print(f"DISCARD: {lru}")
             self.cache_data[key] = item
