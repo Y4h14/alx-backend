@@ -35,6 +35,6 @@ class LRUCache(BaseCaching):
             key (_type_): _description_
         """
         if key in self.cache_data:
-            self.cache_data.remove(key)
-            self.cache_data.append(key)
+            value = self.cache_data.pop(key)
+            self.cache_data[key] = value
         return self.cache_data.get(key, None)
